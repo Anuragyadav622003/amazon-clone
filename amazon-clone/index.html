@@ -73,12 +73,34 @@
             </div>
         </div>
     </header>
-    <div class="hero-section">
+    <!-- <div class="hero-section">
         <div class="hero-msg">
             <p>You are on amazon.com. You can also shop on Amazon India for millions of products with fast local delivery. <a>Click here to go to amazon.in</a></p>
         </div>
 
+    </div> -->
+    <div class="carousel">
+        <div class="carousel-container">
+            <div class="carousel-slide">
+                <img src="hero_image.jpg" alt="Slide 1">
+            </div>
+            <div class="carousel-slide">
+                <img src="hero_image2.jpg" alt="Slide 2">
+            </div>
+            <div class="carousel-slide">
+                <img src="hero_image3.jpg" alt="Slide 3">
+            </div>
+            <div class="carousel-slide">
+                <img src="hero_image4.jpg" alt="Slide 4">
+               
+            </div>
+        </div>
+        <button class="carousel-btn prev-btn">&#8249;</button>
+        <button class="carousel-btn next-btn">&#8250;</button>
+       
     </div>
+    
+
 
     <div class="shop-section">
 
@@ -308,6 +330,37 @@
         </div>
     </div>
 </footer>
+<script>
+    const carouselContainer = document.querySelector('.carousel-container');
+const carouselSlides = document.querySelectorAll('.carousel-slide');
+const prevBtn = document.querySelector('.prev-btn');
+const nextBtn = document.querySelector('.next-btn');
 
+let currentIndex = 0;
+
+// Function to update the carousel position
+function updateCarousel() {
+    const slideWidth = carouselSlides[0].clientWidth;
+    carouselContainer.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+}
+
+// Next button functionality
+nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % carouselSlides.length;
+    updateCarousel();
+});
+
+// Previous button functionality
+prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + carouselSlides.length) % carouselSlides.length;
+    updateCarousel();
+});
+
+// Auto-slide every 5 seconds
+setInterval(() => {
+    nextBtn.click();
+}, 5000);
+
+</script>
 
 </html>
