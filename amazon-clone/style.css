@@ -34,6 +34,7 @@
 
 .border {
     border: 1px soild transparent;
+
 }
 
 .border:hover {
@@ -50,7 +51,7 @@
 }
 
 .add-second {
-    font-size: 1rem;
+    font-size: 15px;
     margin-left: 3px;
 }
 
@@ -103,6 +104,7 @@
 }
 
 
+
 /**box4**/
 
 span {
@@ -125,6 +127,7 @@ span {
     font-size: 0.85rem;
     font-weight: 700;
 }
+
 
 
 /**panel**/
@@ -161,6 +164,10 @@ span {
 @media (max-width: 768px) {
 
 
+    .nav-return p {
+font-size: 15px;
+padding: 2px;
+    }
    
         .nav-logo {
            object-fit: contain;
@@ -168,23 +175,37 @@ span {
  
 
     .nav-search {
-        width: 30%;
+        width: 50%;
     
     }
-    .nav-address{
-        display:none
+ 
+
+    .nav-cart  {
+      
+        display: none;
+      
+
     }
-
-    .nav-cart i {
-        font-size: 25px;
-        display: inline;
-
+    .nav-singin{
+        padding: 4px;
+        font-size: 15px;
     }
 
     .add-icon {
-        flex-direction: column;
+        flex-direction: column-reverse;
         align-items: flex-start;
+       
     }
+     .nav-return{
+            display: none;
+        }
+      
+        .nav-singin{
+            display: none;
+        }
+        .nav-address{
+            display: none;
+        }
 }
 
  @media (max-width: 480px) {
@@ -218,10 +239,8 @@ span {
         font-size: 1rem;
         width: 35px;
     }
-
-    .nav-cart i {
-        font-size: 20px;
-    } */
+        */
+       
 } 
 
 
@@ -393,7 +412,9 @@ span {
 
 .prev-btn {
     left: 10px;
+
 }
+
 
 .next-btn {
     right: 10px;
@@ -826,3 +847,91 @@ a:hover {
         font-size: 0.7rem;
     }
 }
+
+
+
+        /* Sidebar styles */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -350px;
+            width: 250px;
+            height: 100%;
+            background-color: #232f3e;
+            color: #fff;
+            transition: left 0.3s ease;
+            z-index: 1000;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .sidebar.open {
+            left: 0;
+        }
+
+        .sidebar h2 {
+            margin-top: 0;
+            font-size: 20px;
+            color: #fff;
+        }
+
+        .sidebar a {
+            display: block;
+            color: #fff;
+            padding: 10px 0;
+            text-decoration: none;
+            border-bottom: 1px solid #3a4553;
+        }
+
+        .sidebar a:hover {
+            background-color: #37475a;
+        }
+
+        .sidebar .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        /* Overlay styles */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            z-index: 999;
+        }
+
+        .overlay.show {
+            display: block;
+        }
+
+        /* Toggle button */
+        .toggle-btn {
+          
+          
+            color: #fff;
+            border: none;
+            font-size: 25px;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 1;
+        }
+
+        .toggle-btn i {
+            margin-right: 5px;
+        }
+        @media screen and (min-width: 760px) {
+            .toggle-btn {
+                display: none;
+            }
+        }
+
+       

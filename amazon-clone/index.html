@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> <img src="Amazon.com.png" style="width: 5px; height: 10px;">amazon clone</title>
+    <title> amazon clone</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="style.css">
@@ -56,6 +57,28 @@
             <div class="nav-cart border">
                 <i class="fa-solid fa-cart-shopping"></i> Cart
             </div>
+            <div class="toggle-btn" id="toggleBtn">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+         <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <span class="close-btn" id="closeBtn">&times;</span>
+            <h2>Amazon Menu</h2>
+            <a class="nav-cart border">
+                <i class="fa-solid fa-cart-shopping"></i> Cart
+            </a>
+            <a href="#">Today's Deals</a>
+            <a href="#">Customer Service</a>
+            <a href="#">Registry</a>
+            <a href="#">Gift Cards</a>
+            <a href="#">Sell</a>
+            <a href="#">Your Orders</a>
+            <a href="#">Your Account</a>
+            <a href="#">Help</a>
+        </div>
+    
+        <!-- Overlay -->
+        <div class="overlay" id="overlay"></div>
         </div>
 
         <div class="panel">
@@ -342,6 +365,7 @@ let currentIndex = 0;
 // Function to update the carousel position
 function updateCarousel() {
     const slideWidth = carouselSlides[0].clientWidth;
+
     carouselContainer.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
 }
 
@@ -361,6 +385,43 @@ prevBtn.addEventListener('click', () => {
 setInterval(() => {
     nextBtn.click();
 }, 5000);
+
+
+
+
+/* sidebar */
+const toggleBtn = document.getElementById('toggleBtn');
+const closeBtn = document.getElementById('closeBtn');
+const sidebar = document.getElementById('sidebar');
+const overlay = document.getElementById('overlay');
+
+// Open sidebar
+toggleBtn.addEventListener('click', () => {
+    sidebar.classList.add('open');
+    overlay.classList.add('show');
+});
+
+// Close sidebar
+closeBtn.addEventListener('click', () => {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('show');
+});
+
+// Close sidebar when clicking on the overlay
+overlay.addEventListener('click', () => {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('show');
+});
+
+   // Automatically close sidebar on screen resize if width > 760px
+   window.addEventListener('resize', () => {
+        if (window.innerWidth > 760) {
+            sidebar.classList.remove('open');
+            overlay.classList.remove('show');
+        }
+    });
+
+
 
 </script>
 
